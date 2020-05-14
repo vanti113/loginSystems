@@ -4,6 +4,7 @@ session_start();
 //서버측으로 보내지는 리퀘스트메소드의 형식이 무엇인가에 따라 처리가 나눠진다.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //회원가입시 처리구문
+    var_dump($_POST);
     if ($_POST['signin']) {
 
         //list로 분리된 배열, inputs는 연관배열, errors는 인덱스배열
@@ -19,16 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             require_once "password_hash.php";
             $validated_pass = hash_pass($inputs['password']);
             require_once "use_database.php";
+            var_dump($inputs);
             $temp = insert_db($inputs, $validated_pass);
             
 
             if (is_int($temp)) {
-                //print "OK"; 데이터가 정상적으로 데이터베이스에 반영되면, 반영한 로우의 갯수를 반환
+                // print "OK"; //데이터가 정상적으로 데이터베이스에 반영되면, 반영한 로우의 갯수를 반환
                 
-                // print <<< _html_
-                // <html><head></head><body><script>alert("Thank you for your Sign up!");
-                // window.location.replace('http://localhost:81/php/logsys/loginSystems/index.php');</script></body></html>
-                // _html_;
+                print <<< _html_
+                <html><head></head><body><script>alert("Thank you for your Sign up!");
+                window.location.replace('http://localhost:81/php/logsys/loginSystems/index.php');</script></body></html>
+                _html_;
             }
         }
     }
@@ -96,63 +98,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else { //get방식일 경우의 처리
 }
 function validate_form()
-{ //POST방식으로 전송된 폼데이터를 검증한다.
-    $inputs = array();
+{
     $errors = array();
-    var_dump($_POST);
+    $inputs = array();
+    
     if ($_POST['signin']) {
-        if (!$_POST['first_name']) {
-            $errors[] = "Please insert your First name correctly";
+        if (strlen(trim($_POST['first_name'])) == 0) {
+            $errors[] = "Please insert your First name!";
         } else {
-            $inputs['first_name'] = htmlentities(trim($_POST['first_name']));
+            $inputs['first_name'] = htmlentities($_POST['first_name']);
         }
-        // if ($_POST['last_name']) {
-        //     $inputs['last_name'] = htmlentities(trim($_POST['last_name'])) ?? '';
-        //     var_dump($inputs['last_name']);
-        //     if (strlen($inputs['last_name']) == 0) {
-        //         $errors[] = "Please insert your Last name correctly";
-        //     }else{}
-        // }
-        if (!$_POST['last_Name']) {
-            $errors[] = "Please insert your Last name correctly";
+        //정말 귀신이 곡할 노릇이지만, last_name의 코드 위치를 바꾸어 주니 데이터가 제대로 도달한다...미친..
+        //  print "사라지는 데이터".$_POST['last_name'];
+        // //  if(strlen($_POST['last_name']) == 0){
+        // //      $errors[] = "Please insert your Last name!";
+        // //  }else{
+        // //     //  $inputs['last_name'] = htmlentities($_POST['last_Name']);
+        // //     $inputs['name'] = $_POST['last_Name'];
+        // //     var_dump($inputs['name']);
+        // //  }
+        // $inputs['last_name'] = $_POST['last_Name'];
+        // var_dump($inputs['last_name']);
+        
+        if (strlen(trim($_POST['email'])) == 0) {
+            $errors[] = "Please insert your e-mail!";
         } else {
-            $inputs['last_Name'] = htmlentities(trim($_POST['last_name']));
+            $inputs['email'] = htmlentities($_POST['email']);
         }
 
-        if (!$_POST['email']) {
-            $errors[] = "Please insert your email address correctly";
+        if (strlen(trim($_POST['password'])) == 0) {
+            $errors[] = "Please insert your password!";
         } else {
-            $inputs['email'] = htmlentities(trim($_POST['email']));
+            $inputs['password']= htmlentities($_POST['password']);
         }
-         
-        if (!$_POST['password']) {
-            $errors[] = "Please insert your Password correctly";
+
+        //FILTER_SANITIZE_NUMBER_INT 이 필터옵션을 쓰면 입력된 숫자는 문자열로 전환이 된다.
+        $contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_NUMBER_INT);
+        var_dump($contact);
+        if (strlen(trim($contact)) == 0) {
+            $errors[] = "Please insert your contact number";
         } else {
-            $inputs['password'] = htmlentities(trim($_POST['password']));
+            $inputs['contact'] = $contact;
         }
-      
-        if (!$_POST['contact']) {
-            $errors[] = "Please insert your Contact Numbers correctly";
+
+        if (strlen(trim($_POST['last_name'])) == 0) {
+            $errors[] = "Please insert your last name";
         } else {
-            $inputs['contact'] = htmlentities(trim($_POST['contact']));
+            $inputs['last_name'] = htmlentities($_POST['last_name']);
         }
     }
-    //밑의 검증 함수에서는 데이터가 있을 경우에는 검증을 하고 없다면 검증하지 않는다.
-    //따라서 위의 회원가입 부분과 로그인 부분에서 융통성있게 사용이 가능.
-    //검증 절차는 화이트스페이스 제거와 크로싱사이트 공격을 막기위한 문자변환, 공백으로 입력하지 못하도록
-    //문자열 갯수의 검증등이 있다.
+
     if ($_POST['login']) {
-        if (!$_POST['email']) {
-            $errors[] = "Please insert your email address correctly";
+        if (strlen(trim($_POST['email'])) == 0) {
+            $errors[] = "Please insert your information correctly!";
         } else {
-            $inputs['email'] = htmlentities(trim($_POST['email'])) ?? '';
+            $inputs['email'] = htmlentities($_POST['email']);
         }
-                
-        if (!$_POST['password']) {
-            $errors[] = "Please insert your Password correctly";
+
+        if (strlen(trim($_POST['password'])) == 0) {
+            $errors[] = "Please insert your information correctly!";
         } else {
-            $inputs['password'] = htmlentities(trim($_POST['password'])) ?? '';
+            $inputs['password']= htmlentities($_POST['password']);
         }
     }
+        
+    if ($_POST['forgot']) {
+            if (strlen(trim($_POST['first_name'])) == 0) {
+                $errors[] = "Please insert your First name!";
+            } else {
+                $inputs['first_name'] = htmlentities($_POST['first_name']);
+            }
+
+            if (strlen(trim($_POST['last_name'])) == 0) {
+                $errors[] = "Please insert your last name";
+            } else {
+                $inputs['last_name'] = htmlentities($_POST['last_name']);
+            }
+        }
+    
+    var_dump($errors);
+    var_dump($inputs);
     return array($inputs, $errors);
 }
