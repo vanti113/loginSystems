@@ -1,0 +1,19 @@
+.contents__sub .Admin {
+  background-color: #f1f1f1;
+  height: 350px;
+}
+.contents__sub .sign__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0px;
+}
+.contents__sub .sign__items.log__reset .sign__title {
+  margin-top: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+.contents__sub .sign__items.log__reset {
+  display: block;
+}

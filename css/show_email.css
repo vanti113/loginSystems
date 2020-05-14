@@ -1,0 +1,21 @@
+.show_main {
+  margin: 100px 0px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.show_main .show_email {
+  animation: upDown 2s infinite ease-in-out;
+}
+
+@keyframes upDown {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: none;
+  }
+}

@@ -1,0 +1,7 @@
+@import "resetCSS.css";
+@import "header.css";
+@import "manage.css";
+
+* {
+  box-sizing: border-box;
+}

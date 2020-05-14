@@ -1,0 +1,49 @@
+.header.welcome__header.forgot {
+  margin-top: -30px;
+}
+.header.welcome__header.forgot h1 {
+  font-size: 55px;
+}
+.forgot__main {
+  margin-top: 30px;
+}
+.forgot__main .forgot__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.forgot__form .forgot__input {
+  display: flex;
+  align-items: center;
+  margin: 15px 0px;
+  font-size: 30px;
+  /* margin-left: -100px; */
+  font-size: 30px;
+}
+
+.forgot__input .forgot__form_label,
+.forgot__input .forgot__form_input {
+  margin: 0px 10px;
+}
+.forgot__input .forgot__form_input {
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid rgb(80, 25, 25);
+  outline: none;
+  font-size: 20px;
+  width: 200px;
+  transition: width 1s;
+}
+.forgot__input .forgot__form_input:focus {
+  width: 350px;
+}
+
+.forgot__main .forgot__input__button input {
+  font-size: 30px;
+  color: white;
+  background-color: rgb(79, 160, 197);
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin: 30px 20px;
+}

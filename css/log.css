@@ -1,0 +1,53 @@
+.log {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.log .log__block {
+  width: 500px;
+  height: 580px;
+  background-color: rgb(212, 202, 202);
+  box-shadow: 0px 10px 10px rgb(124, 124, 124);
+}
+
+.log .log__content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.log .log__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.log .log__title {
+  font-family: "Ubuntu", sans-serif;
+  padding-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+.log .log__items input {
+  font-size: 25px;
+  border: none;
+  box-shadow: 0px 10px 10px rgb(124, 124, 124);
+  padding: 5px 0px;
+}
+.log .log__items__buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+.log .log__items__buttons input {
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 26px;
+  color: rgb(70, 70, 70);
+  font-family: "Ubuntu", sans-serif;
+  background-color: white;
+}

@@ -1,0 +1,47 @@
+.entire {
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px;
+}
+.welcome__body {
+  margin-bottom: -110px;
+  margin-top: 10px;
+}
+
+.welcome__body .header.welcome__header {
+  padding-top: 160px;
+}
+.welcome__logout {
+  display: flex;
+  justify-content: center;
+}
+.welcome__logout input {
+  font-size: 30px;
+  color: white;
+  background-color: rgb(79, 160, 197);
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.welcome__message {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: rgb(61, 60, 60);
+  animation: mover 1.5s ease-in infinite forwards;
+}
+@keyframes mover {
+  0% {
+    padding-top: 10px;
+    color: white;
+  }
+  50% {
+    padding-top: 0px;
+    color: black;
+  }
+  100% {
+    padding-top: 10px;
+    color: white;
+  }
+}
