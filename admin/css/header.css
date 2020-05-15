@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .dashboard .dashboard__title {
   color: white;
@@ -31,4 +32,21 @@
 .dashboard .dashboard__contents.left i {
   opacity: 0.5;
   font-size: 20px;
+}
+.dashboard .dashboard__contents.right input {
+  background-color: rgb(53, 196, 231);
+  border: 1px solid rgb(26, 117, 139);
+  color: white;
+  width: 75px;
+  height: 35px;
+  position: absolute;
+  right: 40px;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.dashboard .dashboard__contents.right input:hover {
+  color: rgb(95, 78, 56);
+  background-color: #ffd777;
+  border: 1px solid rgb(95, 78, 56);
 }
