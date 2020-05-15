@@ -15,6 +15,7 @@
   align-items: center;
   font-size: 19px;
   margin-left: 16px;
+  position: relative;
 }
 .dashboard .dashboard__contents.right {
   display: flex;
@@ -26,4 +27,8 @@
   margin-left: 15px;
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
+}
+.dashboard .dashboard__contents.left i {
+  opacity: 0.5;
+  font-size: 20px;
 }

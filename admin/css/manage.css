@@ -3,6 +3,7 @@
   width: 100%;
   height: 800px;
   justify-content: space-between;
+  font-family: "Open Sans", sans-serif;
 }
 .manage .manage__contents.left {
   position: fixed;
@@ -10,6 +11,10 @@
   width: 13.8%;
   height: 100%;
   background-color: #424a5d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .manage .manage__contents.right {
   position: relative;
@@ -19,4 +24,51 @@
   left: 209px;
   background-color: rgb(242, 242, 242);
   /* background-color: red; */
+}
+.manage .manage__contents.left .manage__profile {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 100px;
+}
+.manage__profile .manage__icon {
+  width: 70px;
+  height: 70px;
+  background-color: #ffd777;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.manage__profile .manage__title {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+}
+
+.manage .manage__contents.left .manage__menu {
+  position: fixed;
+  top: 240px;
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start; */
+}
+
+.manage__contents.left .manage__menu .menu__list__sub {
+  position: relative;
+  margin: 20px;
+  margin-bottom: 40px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  left: -10px;
+  color: rgb(158, 164, 168);
+  font-weight: 400;
+}
+.manage__contents.left .manage__menu .menu__list__sub i {
+  font-size: 24px;
+  margin-right: 10px;
 }

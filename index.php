@@ -70,7 +70,7 @@ print <<< _html_form_
               </li>
               <li class="sign__items form_items">
                 <span class="sign__title">Contact Number</span>
-                <input type="number" name="contact" minlength="10"/>
+                <input type="text" name="contact" minlength="10"/>
               </li>
               <li class="sign__items__buttons">
                 <input type="submit" name="signin" value="Sign up" />
