@@ -5,22 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      input {
-        background-color: blue;
-        position: absolute;
-
-        left: 40px;
-        right: 40px;
-        width: 1000px;
-        transition: width 2s;
+      html,
+      body {
+        font-family: sans-serif;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
       }
-      input:focus {
-        width: 500px;
-        height: 100px;
+      .subject1 {
+        width: 100%;
+        height: 50%;
+        background-color: #76c4c6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .subject2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        background-color: #1eac9c;
+      }
+
+      .subject1 .dotbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: turning_dots 1s ease infinite;
+      }
+      .subject1 .dotbox .dots {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        margin: 0px 15px;
+        border-radius: 40px;
+      }
+      @keyframes turning_dots {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(180deg);
+        }
+      }
+      .subject2 .barbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .subject2 .barbox .bars {
+        width: 15px;
+        height: 50px;
+        background-color: white;
+        margin: 3px;
+      }
+      #bar1 {
+        animation: increasing_bar1 1.8s ease-in-out infinite;
+      }
+      #bar2 {
+        animation: increasing_bar2 1.8s ease-in-out infinite;
+      }
+      #bar3 {
+        animation: increasing_bar3 1.8s ease-in-out infinite;
+      }
+      #bar4 {
+        animation: increasing_bar4 1.8s ease-in-out infinite;
+      }
+      #bar5 {
+        animation: increasing_bar5 1.8s ease-in-out infinite;
+      }
+      @keyframes increasing_bar1 {
+        0% {
+          height: 50px;
+        }
+        15% {
+          height: 160px;
+        }
+        30% {
+          height: 50px;
+        }
+      }
+      @keyframes increasing_bar2 {
+        5% {
+          height: 50px;
+        }
+        20% {
+          height: 160px;
+        }
+        35% {
+          height: 50px;
+        }
+      }
+      @keyframes increasing_bar3 {
+        10% {
+          height: 50px;
+        }
+        25% {
+          height: 160px;
+        }
+        40% {
+          height: 50px;
+        }
+      }
+      @keyframes increasing_bar4 {
+        15% {
+          height: 50px;
+        }
+        30% {
+          height: 160px;
+        }
+        45% {
+          height: 50px;
+        }
+      }
+      @keyframes increasing_bar5 {
+        20% {
+          height: 50px;
+        }
+        35% {
+          height: 160px;
+        }
+        50% {
+          height: 50px;
+        }
       }
     </style>
   </head>
   <body>
-    <input type="text" name="" id="" />
+    <div class="subject1">
+      <div class="dotbox">
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+      </div>
+    </div>
+    <div class="subject2">
+      <div class="barbox">
+        <div id="bar1" class="bars"></div>
+        <div id="bar2" class="bars"></div>
+        <div id="bar3" class="bars"></div>
+        <div id="bar4" class="bars"></div>
+        <div id="bar5" class="bars"></div>
+      </div>
+    </div>
   </body>
 </html>

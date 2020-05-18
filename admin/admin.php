@@ -1,7 +1,12 @@
 <?php
 //날짜 수식  
-//   $day= date('d');
-//   $month = date('F');
-//   $year = date('Y');
-//   print $year ." | ". $month." | ".$day;
+    function test(){
+        
+        $day= date('d');
+        $month = date('m');
+        $year = date('Y');
+        
+        return  $date = $year ."-". $month."-".$day;  
+    }
+    echo test();
 ?>

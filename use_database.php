@@ -7,7 +7,7 @@ try {
 } catch (PDOException $e) {
     print "다음과 같은 에러가 발생했습니다." . $e->getMessage();
 }
-function insert_db($data, $password)
+function insert_db($data, $password, $date)
 {
     global $db;
     $first = $data['first_name'];
@@ -15,8 +15,8 @@ function insert_db($data, $password)
     $email = $data['email'];
     $contact = $data['contact'];
 
-    $result = $db->exec("INSERT INTO logsys(first, last, email, password, contact)
-	VALUES('$first', '$last', '$email', '$password', '$contact')");
+    $result = $db->exec("INSERT INTO logsys(first, last, email, password, contact, date)
+	VALUES('$first', '$last', '$email', '$password', '$contact','$date')");
     
     
     return $result;

@@ -20,8 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             require_once "password_hash.php";
             $validated_pass = hash_pass($inputs['password']);
             require_once "use_database.php";
+            $date = insert_date();
             var_dump($inputs);
-            $temp = insert_db($inputs, $validated_pass);
+            $temp = insert_db($inputs, $validated_pass, $date);
             
 
             if (is_int($temp)) {
@@ -101,7 +102,8 @@ function validate_form()
 {
     $errors = array();
     $inputs = array();
-    
+     var_dump($inputs['name']);
+
     if ($_POST['signin']) {
         if (strlen(trim($_POST['first_name'])) == 0) {
             $errors[] = "Please insert your First name!";
@@ -163,20 +165,29 @@ function validate_form()
     }
         
     if ($_POST['forgot']) {
-            if (strlen(trim($_POST['first_name'])) == 0) {
-                $errors[] = "Please insert your First name!";
-            } else {
-                $inputs['first_name'] = htmlentities($_POST['first_name']);
-            }
-
-            if (strlen(trim($_POST['last_name'])) == 0) {
-                $errors[] = "Please insert your last name";
-            } else {
-                $inputs['last_name'] = htmlentities($_POST['last_name']);
-            }
+        if (strlen(trim($_POST['first_name'])) == 0) {
+            $errors[] = "Please insert your First name!";
+        } else {
+            $inputs['first_name'] = htmlentities($_POST['first_name']);
         }
+
+        if (strlen(trim($_POST['last_name'])) == 0) {
+            $errors[] = "Please insert your last name";
+        } else {
+            $inputs['last_name'] = htmlentities($_POST['last_name']);
+        }
+    }
     
     var_dump($errors);
     var_dump($inputs);
     return array($inputs, $errors);
+}
+
+function insert_date()
+{
+    $day= date('d');
+    $month = date('m');
+    $year = date('Y');
+    $date = $year."-".$month."-".$day;    
+    return  $date;
 }
