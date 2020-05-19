@@ -2,6 +2,9 @@
 @import "header.css";
 @import "manage.css";
 @import "table.css";
+@import "resetPassword.css";
+@import "index.css";
+
 * {
   box-sizing: border-box;
 }

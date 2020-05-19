@@ -32,6 +32,7 @@
 .dashboard .dashboard__contents.left i {
   opacity: 0.5;
   font-size: 20px;
+  cursor: pointer;
 }
 .dashboard .dashboard__contents.right input {
   background-color: rgb(53, 196, 231);
