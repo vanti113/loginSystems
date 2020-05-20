@@ -18,3 +18,9 @@ body {
 .showing {
   display: none;
 }
+.width {
+  width: 100%;
+}
+.position {
+  left: 0px;
+}

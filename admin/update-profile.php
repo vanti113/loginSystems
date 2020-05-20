@@ -1,6 +1,6 @@
 <?php
 
-function show_Page()
+function show_page()
 {
     print <<<_html_
     <!DOCTYPE html>
@@ -69,22 +69,30 @@ function show_Page()
       <div class="manage__contents right">
         <div class="manage__board">
           <div class="manage__board__title">
-            <h3>> Change password</h3>
+            <h3>> users Information</h3>
           </div>
           <div class="manage__board__users password">
             <form action="">
               <ul>
                 <li class="password-stuff">
-                  <span>Old password</span>
-                  <input class="pass_input" type="password" />
+                  <span>First Name</span>
+                  <input class="pass_input" type="text" />
                 </li>
                 <li class="password-stuff">
-                  <span>New password</span>
-                  <input class="pass_input" type="password" />
+                  <span>Last Name</span>
+                  <input class="pass_input" type="text" />
                 </li>
                 <li class="password-stuff">
-                  <span>Confirm password</span>
-                  <input class="pass_input" type="password" />
+                  <span>Email</span>
+                  <input class="pass_input" type="email" readonly />
+                </li>
+                <li class="password-stuff">
+                  <span>Contact no.</span>
+                  <input class="pass_input" type="text" />
+                </li>
+                <li class="password-stuff">
+                  <span>Registration Date</span>
+                  <input class="pass_input" type="text" readonly />
                 </li>
                 <li class="password-stuff button">
                   <input type="submit" name="" value="Change" />
@@ -96,9 +104,10 @@ function show_Page()
       </div>
     </main>
     <script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script>
-     </body>
+    </body>
     </html>
 _html_;
 }
+
 
 show_page();
