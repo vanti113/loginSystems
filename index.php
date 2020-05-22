@@ -104,7 +104,7 @@ print <<< _html_form_
           </form>
         </div>
         <div id="Adm" class="tabcontent Signin Admin">
-         <form action="http://localhost:81/php/logsys/loginSystems/main.php" method="POST" class="sign">
+         <form action="http://localhost:81/php/logsys/loginSystems/admin/main.php" method="POST" class="sign">
             <ul class="sign__list">
               <li class="sign__items form_items">
                 <span class="sign__title">Adminstrator</span>

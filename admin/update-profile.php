@@ -95,7 +95,7 @@ function show_page()
                   <input class="pass_input" type="text" readonly />
                 </li>
                 <li class="password-stuff button">
-                  <input type="submit" name="" value="Change" />
+                  <input type="submit" name="" value="Update" />
                 </li>
               </ul>
             </form>

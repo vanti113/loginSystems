@@ -77,46 +77,54 @@ function main_page(){
                 <th class="table6">Reg.Date</th>
                 <th class="table7"></th>
               </tr>
-              <tr>
-                <td class="table1">1</td>
-                <td class="table2">asdf</td>
-                <td class="table3">fdfaf</td>
-                <td class="table4">vanti@gmail.com</td>
-                <td class="table5">080-3900-6065</td>
-                <td class="table6">2001-03-04</td>
-                <td class="table7 table__button">
-                  <form
-                    action="http://localhost:81/php/logsys/loginSystems/admin/main.php"
-                    method="POST"
-                  >
-                    <button
-                      id="input1"
-                      class="button1"
-                      type="submit"
-                      name="modify_user"
-                    >
-                      <i id="icon1" class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button
-                      id="input2"
-                      class="button2"
-                      type="submit"
-                      name="delete_user"
-                    >
-                      <i id="icon2" class="far fa-trash-alt"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script>
-    </body>
-    </html>
-    _html_;
+   _html_;
+
+   paint_users();
+
+   print '</table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>';
 }
-main_page();
+
+function deploy_data($i){
+  print <<<_html_
+  <tr>
+  <td class="table1">{$id[$i]}</td>
+  <td class="table2">{$first[$i]}</td>
+  <td class="table3">{$last[$i]}</td>
+  <td class="table4">{$email[$i]}</td>
+  <td class="table5">{$contact[$i]}</td>
+  <td class="table6">{$date[$i]}</td>
+  <td class="table7 table__button">
+  <form
+    action="http://localhost:81/php/logsys/loginSystems/admin/main.php"
+  method="POST"
+  >
+    <button
+      id="input1"
+      class="button1"
+      type="submit"
+      name="modify_user"
+    >
+      <i id="icon1" class="fas fa-pencil-alt"></i>
+    </button>
+    <button
+      id="input2"
+      class="button2"
+      type="submit"
+      name="delete_user"
+    >
+      <i id="icon2" class="far fa-trash-alt"></i>
+    </button>
+    </form>
+    </td>
+    </tr>
+
+  _html_;
+}
+function paint_users(){
+  for($i = 0; $i < count($id); $i++){
+    deploy_data($i);
+  }  
+}
+
+
 ?>
