@@ -1,7 +1,12 @@
 <?php
 
-function main_page(){
-    print <<< _html_
+
+
+
+
+function show_users(){
+  global $id, $first, $last, $email, $contact, $date;
+  print <<< _html_
     <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -77,54 +82,44 @@ function main_page(){
                 <th class="table6">Reg.Date</th>
                 <th class="table7"></th>
               </tr>
-   _html_;
+_html_;
 
-   paint_users();
-
-   print '</table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>';
-}
-
-function deploy_data($i){
-  print <<<_html_
-  <tr>
-  <td class="table1">{$id[$i]}</td>
-  <td class="table2">{$first[$i]}</td>
-  <td class="table3">{$last[$i]}</td>
-  <td class="table4">{$email[$i]}</td>
-  <td class="table5">{$contact[$i]}</td>
-  <td class="table6">{$date[$i]}</td>
-  <td class="table7 table__button">
-  <form
-    action="http://localhost:81/php/logsys/loginSystems/admin/main.php"
-  method="POST"
-  >
-    <button
-      id="input1"
-      class="button1"
-      type="submit"
-      name="modify_user"
-    >
-      <i id="icon1" class="fas fa-pencil-alt"></i>
-    </button>
-    <button
-      id="input2"
-      class="button2"
-      type="submit"
-      name="delete_user"
-    >
-      <i id="icon2" class="far fa-trash-alt"></i>
-    </button>
-    </form>
-    </td>
-    </tr>
-
-  _html_;
-}
-function paint_users(){
-  for($i = 0; $i < count($id); $i++){
-    deploy_data($i);
-  }  
-}
-
-
-?>
+        for($i = 0; $i < count($id); $i++){
+          print "
+          <tr>  
+          <td class=\"table1\">{$id[$i]}</td>
+          <td class=\"table2\">{$first[$i]}</td>
+          <td class=\"table3\">{$last[$i]}</td>
+          <td class=\"table4\">{$email[$i]}</td>
+          <td class=\"table5\">{$contact[$i]}</td>
+          <td class=\"table6\">{$date[$i]}</td>
+          <td class=\"table7 table__button\">
+          <form
+          action=\"http://localhost:81/php/logsys/loginSystems/admin/main.php\"
+          method=\"POST\"
+          >
+          <button
+          id=\"input1\"
+          class=\"button1\"
+          type=\"submit\"
+          name=\"modify_user\"
+          >
+          <i id=\"icon1\" class=\"fas fa-pencil-alt\"></i>
+          </button>
+          <button
+          id=\"input2\"
+          class=\"button2\"
+          type=\"submit\"
+          name=\"delete_user\"
+          >
+          <i id=\"icon2\" class=\"far fa-trash-alt\"></i>
+          </button>
+          </form>
+          </td>
+          </tr>";
+        }
+          print <<< _html_
+          </table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>
+          _html_;
+        }
+              ?>

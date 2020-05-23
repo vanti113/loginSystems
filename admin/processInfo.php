@@ -1,5 +1,6 @@
 <?php
 
+
 function sepArray($array)
 {
     $id = array();

@@ -14,8 +14,6 @@
     require_once "database.php";
      require_once "manage-user.php";
     list($id,$first,$last,$email,$contact,$date) = call_users();
-    
-    main_page();
-            
-
-?>
+    // show_users($id);
+    show_users();
+    ?>

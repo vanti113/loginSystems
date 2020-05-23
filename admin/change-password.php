@@ -1,7 +1,7 @@
 <?php
 
 function show_Page()
-{
+{  
     print <<<_html_
     <!DOCTYPE html>
     <html lang="en">
