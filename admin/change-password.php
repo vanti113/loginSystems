@@ -72,22 +72,43 @@ function show_Page()
             <h3>> Change password</h3>
           </div>
           <div class="manage__board__users password">
-            <form action="">
+            <form
+              action="http://localhost:81/php/logsys/loginSystems/admin/main.php"
+              method="POST"
+            >
               <ul>
                 <li class="password-stuff">
                   <span>Old password</span>
-                  <input class="pass_input" type="password" />
+                  <input
+                    id="oldPass"
+                    class="pass_input"
+                    type="password"
+                    minlength="4"
+                    name="old_pass"
+                  />
                 </li>
                 <li class="password-stuff">
                   <span>New password</span>
-                  <input class="pass_input" type="password" />
+                  <input
+                    id="newPass"
+                    class="pass_input"
+                    type="password"
+                    minlength="4"
+                    name="new_pass"
+                  />
                 </li>
                 <li class="password-stuff">
                   <span>Confirm password</span>
-                  <input class="pass_input" type="password" />
+                  <input
+                    id="rePass"
+                    class="pass_input"
+                    type="password"
+                    minlength="4"
+                    name="re_pass"
+                  />
                 </li>
                 <li class="password-stuff button">
-                  <input type="submit" name="" value="Change" />
+                  <input type="submit" name="change_pass" value="Change" />
                 </li>
               </ul>
             </form>
@@ -95,7 +116,8 @@ function show_Page()
         </div>
       </div>
     </main>
-    <script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script>
+     <script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script>
+     <script src="http://localhost:81/php/logsys/loginSystems/admin/js/change-password.js"></script>
      </body>
     </html>
 _html_;

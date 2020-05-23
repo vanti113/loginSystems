@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 function show_users(){
   global $id, $first, $last, $email, $contact, $date;
   print <<< _html_
@@ -122,4 +118,4 @@ _html_;
           </table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>
           _html_;
         }
-              ?>
+?>

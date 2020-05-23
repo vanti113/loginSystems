@@ -18,4 +18,13 @@ function call_users()
     // var_dump($userInfo);
 }
 
+function call_admin(){
+	global $db;
+	$temp = $db -> query("SELECT * FROM admin");
+	$adminInfo = $temp -> fetch(PDO::FETCH_ASSOC);
+
+	return $adminInfo;
+}
+
+
 ?>

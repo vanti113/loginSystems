@@ -108,11 +108,11 @@ print <<< _html_form_
             <ul class="sign__list">
               <li class="sign__items form_items">
                 <span class="sign__title">Adminstrator</span>
-                <input type="text" name="admin_id"/>
+                <input type="text" name="admin_id" minlength="2"/>
               </li>
               <li class="sign__items form_items">
                 <span class="sign__title">Password</span>
-                <input type="password" name="admin_password"/>
+                <input type="password" name="admin_password" minlength="2"/>
               </li>
               <li class="sign__items__buttons">
                 <input type="submit" name="admin_login" value="Log in" />
