@@ -3,7 +3,7 @@
 
 function check_admin($admin, $inputs){
 	if($admin['id'] === $inputs['id']){
-		if(password_verify($input['password'], $admin['password'])){
+		if(password_verify($inputs['password'], $admin['password'])){
 			return true;
 		}else{
 			return false;

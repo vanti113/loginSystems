@@ -10,11 +10,18 @@
                 print "<script>history.back();</script>";
             }else{
                 require_once "database.php";
-                require_once "validate_user.php";
                 $admin_data = call_admin();
+
+                require_once "validate_user.php";
                 $varified = check_admin($admin_data, $inputs);
+
                 if($varified){
-                   require_once "manage-user.php";
+                   // require_once "database.php";
+                    echo "<script type=\"text/javascript\"> location.href=\"http://localhost:81/php/logsys/loginSystems/admin/manage-user.php\" </script>";
+                   // require_once "manage-user.php";
+                    //처리가 되어 넘어온 데이터들은 전역변수
+                   // list($id,$first,$last,$email,$contact,$date) = call_users();
+                   
                 }else{
                     print "<script>alert('Invalid id or password')</script>";
                     print "<script>history.back();</script>";

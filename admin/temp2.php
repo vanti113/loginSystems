@@ -1,8 +1,14 @@
 <?php
 
-$pass = "test@123";
+function c(){
+	print "no!";
+	a();
+	$val = "popo";
+}
 
-$hashed = password_hash($pass, PASSWORD_DEFAULT);
-print $hashed;
+function a(){
+	c();
+}
 
+a();
 ?>

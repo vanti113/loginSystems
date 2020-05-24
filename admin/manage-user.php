@@ -1,7 +1,11 @@
 <?php
-
+// PDO객체는 전역변수로서 사용되던가, 인스턴스를 통해 전역에서 참조되어서 변수로 사용되어야 오류가 없다.
+//함수와 함수끼리는 서로 호출이 가능하다.
+require_once "database.php";
 function show_users(){
   global $id, $first, $last, $email, $contact, $date;
+ list($id,$first,$last,$email,$contact,$date) = call_users();
+  
   print <<< _html_
     <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -118,4 +122,5 @@ _html_;
           </table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>
           _html_;
         }
+        show_users();
 ?>
