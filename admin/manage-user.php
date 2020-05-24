@@ -3,7 +3,8 @@
 //함수와 함수끼리는 서로 호출이 가능하다.
 require_once "database.php";
 function show_users(){
-  global $id, $first, $last, $email, $contact, $date;
+ // global $id,$first,$last,$email,$contact,$date;
+  // require_once "database.php";
  list($id,$first,$last,$email,$contact,$date) = call_users();
   
   print <<< _html_
