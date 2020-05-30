@@ -24,11 +24,19 @@ class setPassword{
 	}
 
 	function insert_inform($db){
-		$id = "admin";
+		$id = "admins";
 		$pass = "test@123";
 		$hashed = password_hash($pass, PASSWORD_DEFAULT);
 		
-		$result = $db->exec("INSERT INTO admin(id, password)VALUES('admin','$hashed')");
+		$result = $db->exec("INSERT INTO admin(id, password)VALUES('$id','$hashed')");
+		return $result;
+	}
+
+	function update_password($db){
+		$password = "test1234";
+		$hash = password_hash($password, PASSWORD_DEFAULT);
+
+		$result = $db->exec("UPDATE admin SET password = '$hash' where id = 'admin'");
 		return $result;
 	}
 
@@ -41,10 +49,17 @@ $pdo_obj= $temp->connect_db(); // 참조를 통해 PDO객체를 만드는 메소
 
 /*$returned_data = $temp->query_Password($pdo_obj); // 저장된 PDO객체를 다시 클래스 내부의 메소드를 호출하여 값을 입력, 그리고 반환받음.
 var_dump($returned_data);*/
-$result = $temp->insert_inform($pdo_obj);
+/* $result = $temp->insert_inform($pdo_obj);
 if($result === false || $result === 0){
 	print "it's not working";
 }else{
 	print "it's working";
+} */
+$result = $temp->update_password($pdo_obj);
+if($result === 1){
+	print "ok";
+}else{
+	print "no..";
 }
+
 ?>

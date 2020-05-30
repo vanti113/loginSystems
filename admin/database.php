@@ -26,5 +26,10 @@ function call_admin(){
 	return $adminInfo;
 }
 
+function update_pass($hashed_new_pass){
+    global $db;
+    $temp = $db->exec("UPDATE admin SET password = '$hashed_new_pass' where id='admin'");
+    return $temp;
+}
 
 ?>
