@@ -40,6 +40,12 @@ class setPassword{
 		return $result;
 	}
 
+	function query_adminPass($db){
+		$temp = $db->query("SELECT password FROM admin");
+		$fetch = $temp->fetch(PDO::FETCH_ASSOC);
+		return $fetch;
+	}
+
 }
 //클래스는 항상 설계도이며, 항상 클래스 바깥에서 객체인스턴스 생성을 통해 컨트롤 하는 것.
 
@@ -56,6 +62,7 @@ if($result === false || $result === 0){
 	print "it's working";
 } */
 $result = $temp->update_password($pdo_obj);
+
 if($result === 1){
 	print "ok";
 }else{

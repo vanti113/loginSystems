@@ -1,7 +1,7 @@
 <?php
 
-function show_page()
-{
+function show_page($user_info)
+{   
     print <<<_html_
     <!DOCTYPE html>
     <html lang="en">
@@ -72,30 +72,30 @@ function show_page()
             <h3>> users Information</h3>
           </div>
           <div class="manage__board__users password">
-            <form action="">
+            <form action="http://localhost:81/php/logsys/loginSystems/admin/main.php" method="POST">
               <ul>
                 <li class="password-stuff">
                   <span>First Name</span>
-                  <input class="pass_input" type="text" />
+                  <input class="pass_input" type="text" name="first" value="$user_info[first]"/>
                 </li>
                 <li class="password-stuff">
                   <span>Last Name</span>
-                  <input class="pass_input" type="text" />
+                  <input class="pass_input" type="text" name="last" value="$user_info[last]"/>
                 </li>
                 <li class="password-stuff">
                   <span>Email</span>
-                  <input class="pass_input" type="email" readonly />
+                  <input id="password_email" class="pass_input" name="email" type="email" value="$user_info[email]" readonly />
                 </li>
                 <li class="password-stuff">
                   <span>Contact no.</span>
-                  <input class="pass_input" type="text" />
+                  <input class="pass_input" type="text" name="contact" value="$user_info[contact]"/>
                 </li>
                 <li class="password-stuff">
                   <span>Registration Date</span>
-                  <input class="pass_input" type="text" readonly />
+                  <input id="password_date" class="pass_input" type="text" value="$user_info[date]" readonly />
                 </li>
                 <li class="password-stuff button">
-                  <input type="submit" name="" value="Update" />
+                  <input type="submit" name="update-profile" value="Update" />
                 </li>
               </ul>
             </form>
@@ -110,4 +110,3 @@ _html_;
 }
 
 
-show_page();

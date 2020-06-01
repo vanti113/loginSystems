@@ -95,33 +95,39 @@ _html_;
           <td class=\"table5\">{$contact[$i]}</td>
           <td class=\"table6\">{$date[$i]}</td>
           <td class=\"table7 table__button\">
-          <form
-          action=\"http://localhost:81/php/logsys/loginSystems/admin/main.php\"
-          method=\"POST\"
-          >
+          <div class=\"form\">
+          <form id=\"change_{$id[$i]}\" action=\"http://localhost:81/php/logsys/loginSystems/admin/main.php\" method=\"POST\">
+          <input type=\"hidden\" name=\"change_inform\" value=\"{$email[$i]}\">
+          </form>
           <button
           id=\"input1\"
           class=\"button1\"
           type=\"submit\"
-          name=\"modify_user\"
+          form=\"change_{$id[$i]}\"
           >
-          <i id=\"icon1\" class=\"fas fa-pencil-alt\"></i>
+          <i class=\"fas fa-pencil-alt icon1\"></i>
           </button>
+          <form id=\"delete_{$id[$i]}\" action=\"http://localhost:81/php/logsys/loginSystems/admin/main.php\" method=\"POST\">
+          <input type=\"hidden\" name=\"delete_inform\" value=\"{$email[$i]}\">
+          </form> 
           <button
           id=\"input2\"
           class=\"button2\"
           type=\"submit\"
           name=\"delete_user\"
+          form=\"delete_{$id[$i]}\"
           >
-          <i id=\"icon2\" class=\"far fa-trash-alt\"></i>
+          <i class=\"far fa-trash-alt icon2\"></i>
           </button>
-          </form>
+          <div>
           </td>
           </tr>";
         }
           print <<< _html_
           </table></div></div></div></main><script src="http://localhost:81/php/logsys/loginSystems/admin/js/index.js"></script></body></html>
           _html_;
+         
         }
         show_users();
+        
 ?>

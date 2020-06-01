@@ -9,7 +9,7 @@ function sepArray($array)
     $email = array();
     $contact = array();
     $date = array();
-    
+        
     foreach ($array as $num => $data) {
         $id[] = $num+1;
         $first[] = $data['first'];

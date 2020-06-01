@@ -32,4 +32,37 @@ function update_pass($hashed_new_pass){
     return $temp;
 }
 
+function find_user($info){
+    global $db;
+    $temp = $db->query("SELECT * FROM logsys where email='$info'");
+    $user_info = $temp->fetch(PDO::FETCH_ASSOC);
+    return $user_info;
+}
+
+function update_user_inform($info){
+    $first = $info['update_first'];
+    $last = $info['update_last'];
+    $contact = $info['update_contact'];
+    $email = $info['update_email'];
+    global $db;
+    $temp = $db->exec("UPDATE logsys SET first = '$first', last = '$last', contact = '$contact' WHERE email = '$email'");
+    
+    if($temp === 1){
+        return true;
+    }else{
+        return false;
+    }   
+}
+
+function delete_user($info){
+    global $db;
+    $temp = $db->exec("DELETE FROM logsys WHERE email='$info'");
+   
+    if($temp > 0){
+        return true;
+    }else{
+        return false;
+    }   
+}
+
 ?>
