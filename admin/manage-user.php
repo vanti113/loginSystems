@@ -1,6 +1,7 @@
 <?php
 // PDO객체는 전역변수로서 사용되던가, 인스턴스를 통해 전역에서 참조되어서 변수로 사용되어야 오류가 없다.
 //함수와 함수끼리는 서로 호출이 가능하다.
+session_start(); //require로서 main.php에 호출이 된다고 하더라도 이 파일에 세션이 시작되어 있어야한다.
 require_once "database.php";
 function show_users(){
  // global $id,$first,$last,$email,$contact,$date;
@@ -33,7 +34,9 @@ function show_users(){
         <span class="dashboard__title">ADMIN DASHBOARD</span>
       </div>
       <div class="dashboard__contents right">
-        <input type="submit" name="" value="Logout" />
+        <form action="http://localhost:81/php/logsys/loginSystems/admin/main.php" method="POST">
+        <input type="submit" name="logout" value="Logout" />
+        </form>
       </div>
     </header>
     <main class="manage">
@@ -128,6 +131,11 @@ _html_;
           _html_;
          
         }
-        show_users();
+        if($_SESSION['username'] === 'admin'){
+          show_users();        
+        }else{
+          echo "<script>window.location.assign('http://localhost:81/php/logsys/loginSystems')</script>";
+        }
+  
         
 ?>

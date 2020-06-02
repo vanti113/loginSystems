@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function show_page($user_info)
 {   
@@ -33,7 +34,9 @@ function show_page($user_info)
         <span class="dashboard__title">ADMIN DASHBOARD</span>
       </div>
       <div class="dashboard__contents right">
-        <input type="submit" name="" value="Logout" />
+        <form action="http://localhost:81/php/logsys/loginSystems/admin/main.php" method="POST">
+        <input type="submit" name="logout" value="Logout" />
+        </form>
       </div>
     </header>
     <main class="manage">
@@ -109,4 +112,10 @@ function show_page($user_info)
 _html_;
 }
 
+if($_SESSION['username'] === 'admin'){
+  show_page($user_info);
+}else{
+  echo "<script>window.location.assign('http://localhost:81/php/logsys/loginSystems')</script>";
+}
 
+?>

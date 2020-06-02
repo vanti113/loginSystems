@@ -1,8 +1,12 @@
 <?php
 // 주요한 처리가 이루어질 예정
+    session_start();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($_POST['admin_login']){
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        
+        if($_POST['admin_login'])
+        {
               list($inputs, $errors) = validate_data();
             //데이터 전달 확인 완료
            
@@ -17,6 +21,9 @@
                 $varified = check_adminId($admin_data, $inputs);
                 var_dump($varified);
                 if($varified){
+                    $_SESSION['username'] = $inputs['id'];
+                    var_dump($_SESSION['username']);
+                    print "<script>alert('Welcome Adminstrator!');</script>";
                    // require_once "database.php";
                     echo "<script type=\"text/javascript\"> location.href=\"http://localhost:81/php/logsys/loginSystems/admin/manage-user.php\" </script>";
                    // require_once "manage-user.php";
@@ -72,10 +79,8 @@
 
         if($c_inform = $_POST['change_inform']){
             require_once "database.php";
-            require_once "update-profile.php";
-            
             $user_info = find_user($c_inform);
-            show_page($user_info);
+            require_once "update-profile.php";
         }
 
         if($_POST['update-profile']){
@@ -104,19 +109,18 @@
            }    print "<script>history.back()</script>";
         }
 
-
+        if($_POST['logout']){
+            unset($_SESSION['username']);
+            print "<script>alert('Good bye!')</script>";
+            print "<script>window.location.assign('http://localhost:81/php/logsys/loginSystems/')</script>";
+        }
 
 
     }  
-/* 
-    require_once "database.php";
-    require_once "manage-user.php";
-     //처리가 되어 넘어온 데이터들은 전역변수
-    list($id,$first,$last,$email,$contact,$date) = call_users(); //
-    // show_users($id);
-    show_users(); */ 
+
     
     
+
     function validate_data(){
         $inputs = array();
         $errors = array();
