@@ -70,6 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if ($_POST['logout']) {
         require_once "logout.php";
+        
+        unset($_SESSION['id']);
     }
 
     //이메일 재확인 절차의 코드
